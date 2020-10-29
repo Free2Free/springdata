@@ -1,0 +1,10 @@
+spring:
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+
+    #启用confirm和return机制
+    publisher-confirm-type: simple
+    publisher-returns: true
