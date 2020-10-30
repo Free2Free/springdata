@@ -1,6 +1,8 @@
 package xin.altitude.mybatisplus.mybatisplus.config;
 
 import com.baomidou.mybatisplus.extension.plugins.OptimisticLockerInterceptor;
+import com.baomidou.mybatisplus.extension.plugins.inner.BlockAttackInnerInterceptor;
+import com.baomidou.mybatisplus.extension.plugins.inner.OptimisticLockerInnerInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -15,7 +17,15 @@ public class MybatisPlusConfig {
      * @return
      */
     @Bean
-    public OptimisticLockerInterceptor optimisticLockerInterceptor() {
-        return new OptimisticLockerInterceptor();
+    public OptimisticLockerInnerInterceptor optimisticLockerInterceptor() {
+        return new OptimisticLockerInnerInterceptor();
+    }
+
+    /**
+     * 防止全表更新与删除
+     * @return
+     */
+    @Bean BlockAttackInnerInterceptor getBlockAttackInnerInterceptor(){
+        return new BlockAttackInnerInterceptor();
     }
 }
