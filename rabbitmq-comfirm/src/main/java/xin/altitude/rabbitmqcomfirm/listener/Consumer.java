@@ -1,9 +1,9 @@
-package xin.altitude.rabbitmq.listener;
+package xin.altitude.rabbitmqcomfirm.listener;
 
 
-import xin.altitude.rabbitmq.entity.ImageEntity;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
+import xin.altitude.rabbitmqcomfirm.entity.ImageEntity;
 
 /**
  * 消息的消费者
@@ -42,8 +42,8 @@ public class Consumer {
      */
     @RabbitListener(queues = "topic-queue")
     public void getMessage(ImageEntity message) {
-        System.out.println("message.getId() = " + message.getId());
-        System.out.println("message.getRpath() = " + message.getRpath());
         System.out.println("接收到消息3：" + message);
+        System.out.println("id = " + message.getId());
+        System.out.println("rpath = " + message.getRpath());
     }
 }

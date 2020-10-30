@@ -1,4 +1,4 @@
-package entity;
+package xin.altitude.rabbitmq.entity;
 
 import java.io.Serializable;
 
