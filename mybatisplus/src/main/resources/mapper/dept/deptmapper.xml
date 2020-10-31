@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="xin.altitude.mybatisplus.mapper.DeptMapper">
+    <resultMap id="deptResultMap" type="xin.altitude.mybatisplus.entity.Dept">
+        <id column="id" property="id"></id>
+        <result column="name" property="name"></result>
+        <result column="staff" property="staff"></result>
+        <result column="tel" property="tel"></result>
+        <collection property="users" ofType="xin.altitude.mybatisplus.entity.User">
+            <id column="user_id" property="id"></id>
+            <result column="name" property="name"></result>
+            <result column="age" property="age"></result>
+            <result column="email" property="email"></result>
+        </collection>
+    </resultMap>
+
+    <!--查询部门信息-->
+    <select id="getDeptInfoById" resultMap="deptResultMap">
+         select a.*,b.id as user_id,b.name,b.age,b.email
+         from tb_dept a,sys_user b
+         where a.id = #{id} and a.id=b.dept_id;
+    </select>
+
+
+    <select id="getAllDeptInfoById" resultMap="deptResultMap">
+         select a.*,b.id as user_id,b.name,b.age,b.email
+         from tb_dept a,sys_user b
+         where a.id=b.dept_id;
+    </select>
+</mapper>

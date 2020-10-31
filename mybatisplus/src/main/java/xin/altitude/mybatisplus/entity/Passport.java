@@ -1,10 +1,9 @@
-package xin.altitude.mybatisplus.mybatisplus.entity;
+package xin.altitude.mybatisplus.entity;
 
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.annotation.Version;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import io.swagger.annotations.ApiModelProperty;

@@ -1,10 +1,12 @@
-package xin.altitude.mybatisplus.mybatisplus.service.impl;
+package xin.altitude.mybatisplus.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import xin.altitude.mybatisplus.mybatisplus.entity.Passenger;
-import xin.altitude.mybatisplus.mybatisplus.mapper.PassengerMapper;
-import xin.altitude.mybatisplus.mybatisplus.service.PassengerService;
+import xin.altitude.mybatisplus.entity.Passenger;
+import xin.altitude.mybatisplus.mapper.PassengerMapper;
+import xin.altitude.mybatisplus.service.PassengerService;
+
+import java.util.List;
 
 /**
  * @author explore
@@ -18,5 +20,10 @@ public class PassengerServiceImpl implements PassengerService {
     @Override
     public Passenger getPassengerInfo(Integer id){
         return passengerMapper.getPassengerInfo(id);
+    }
+
+    @Override
+    public List<Passenger> getPassengerInfo() {
+        return passengerMapper.getAllPassengerInfo();
     }
 }

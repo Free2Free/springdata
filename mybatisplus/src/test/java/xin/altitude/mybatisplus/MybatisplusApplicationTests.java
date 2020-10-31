@@ -1,4 +1,4 @@
-package xin.altitude.mybatisplus.mybatisplus;
+package xin.altitude.mybatisplus;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

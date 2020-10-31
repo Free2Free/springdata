@@ -1,10 +1,11 @@
-package xin.altitude.mybatisplus.mybatisplus.mapper;
+package xin.altitude.mybatisplus.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
-import xin.altitude.mybatisplus.mybatisplus.entity.Passenger;
+import xin.altitude.mybatisplus.entity.Passenger;
+
+import java.util.List;
 
 /**
  * @author explore
@@ -15,5 +16,11 @@ public interface PassengerMapper extends BaseMapper<Passenger> {
     /**
      * 查询乘客信息
      */
-    public Passenger getPassengerInfo(@Param("id") Integer id);
+    Passenger getPassengerInfo(@Param("id") Integer id);
+
+    /**
+     * 查询所有乘客
+     * @return
+     */
+    List<Passenger> getAllPassengerInfo();
 }

@@ -1,8 +1,8 @@
-package xin.altitude.mybatisplus.mybatisplus.service;
+package xin.altitude.mybatisplus.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import org.springframework.stereotype.Service;
-import xin.altitude.mybatisplus.mybatisplus.entity.Book;
+import xin.altitude.mybatisplus.entity.Book;
 
 /**
  * @author explore

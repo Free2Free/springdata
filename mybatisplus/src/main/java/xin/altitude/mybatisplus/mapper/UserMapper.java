@@ -1,8 +1,8 @@
-package xin.altitude.mybatisplus.mybatisplus.mapper;
+package xin.altitude.mybatisplus.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
-import xin.altitude.mybatisplus.mybatisplus.entity.User;
+import xin.altitude.mybatisplus.entity.User;
 
 /**
  * @author explore

@@ -1,4 +1,4 @@
-package xin.altitude.mybatisplus.mybatisplus.config;
+package xin.altitude.mybatisplus.config;
 
 import com.baomidou.mybatisplus.extension.plugins.OptimisticLockerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.BlockAttackInnerInterceptor;

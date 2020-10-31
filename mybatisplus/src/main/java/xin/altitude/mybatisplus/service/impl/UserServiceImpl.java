@@ -1,10 +1,10 @@
-package xin.altitude.mybatisplus.mybatisplus.service.impl;
+package xin.altitude.mybatisplus.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
-import xin.altitude.mybatisplus.mybatisplus.entity.User;
-import xin.altitude.mybatisplus.mybatisplus.mapper.UserMapper;
-import xin.altitude.mybatisplus.mybatisplus.service.UserService;
+import xin.altitude.mybatisplus.entity.User;
+import xin.altitude.mybatisplus.mapper.UserMapper;
+import xin.altitude.mybatisplus.service.UserService;
 
 /**
  * @author explore

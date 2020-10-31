@@ -1,4 +1,4 @@
-package xin.altitude.mybatisplus.mybatisplus.controller;
+package xin.altitude.mybatisplus.controller;
 
 import com.alibaba.fastjson.JSONArray;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import xin.altitude.mybatisplus.mybatisplus.entity.User;
-import xin.altitude.mybatisplus.mybatisplus.mapper.UserMapper;
-import xin.altitude.mybatisplus.mybatisplus.service.UserService;
+import xin.altitude.mybatisplus.entity.User;
+import xin.altitude.mybatisplus.mapper.UserMapper;
+import xin.altitude.mybatisplus.service.UserService;
 
 import java.util.HashMap;
 import java.util.List;
