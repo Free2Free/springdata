@@ -1,6 +1,7 @@
 package xin.altitude.mybatisplus.mybatisplus.controller;
 
 import com.alibaba.fastjson.JSONArray;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -83,5 +84,14 @@ public class UserController {
         List<User> users = JSONArray.parseArray(ss, User.class);
         userService.saveBatch(users);
         return users;
+    }
+
+
+    /**
+     * 分页查询
+     */
+    @PostMapping("/user/selectPage")
+    public Page<User> selectByPage(){
+        return userMapper.selectPage(new Page<>(2,2),null);
     }
 }
