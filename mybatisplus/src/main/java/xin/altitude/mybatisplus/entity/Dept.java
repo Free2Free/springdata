@@ -1,21 +1,22 @@
-package xin.altitude.mybatisplus.mybatisplus.entity;
+package xin.altitude.mybatisplus.entity;
 
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.Version;
-import com.baomidou.mybatisplus.extension.activerecord.Model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @TableName(value="tb_dept")
-public class Dept extends Model<Dept> {
+public class Dept {
 
 	// 主键ID（全局唯一）
 	@ApiModelProperty(value = "主键ID（全局唯一）", position = 0)
@@ -33,6 +34,10 @@ public class Dept extends Model<Dept> {
 	// 联系电话
 	@ApiModelProperty(value = "联系电话", position = 3)
 	private String tel;
+
+	// 员工信息(数据表中不存在)
+	@TableField(exist = false)
+	private List<User> users;
 
 	// 逻辑删除（0:未删除；1:已删除）
 	@ApiModelProperty(value = "逻辑删除（0:未删除；1:已删除）", position = 4)
