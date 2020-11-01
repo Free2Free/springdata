@@ -1,0 +1,21 @@
+
+# 七牛密钥，配上自己申请的七牛账号对应的密钥
+qiniu:
+  AccessKey: ""
+  SecretKey: ""
+  # 七牛空间名
+  Bucket: test
+  # 外链访问路径
+
+
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/ruoyi?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+    username: root
+    password: 123456
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
