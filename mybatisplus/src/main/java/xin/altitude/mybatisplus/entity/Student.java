@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.Version;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import io.swagger.annotations.ApiModelProperty;
@@ -16,6 +18,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @TableName(value="tb_student")
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Student {
 
 	// 主键ID（全局唯一）
@@ -46,10 +49,12 @@ public class Student {
 	private Integer version;
 
 	// 创建时间
+	@JsonIgnore
 	@ApiModelProperty(value = "创建时间", position = 5)
 	private java.util.Date gmtCreate;
 
 	// 修改时间
+	@JsonIgnore
 	@ApiModelProperty(value = "修改时间", position = 6)
 	private java.util.Date gmtModified;
 
