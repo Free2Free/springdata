@@ -129,4 +129,5 @@ public class QiniuServiceImpl implements QiniuService {
     private String getUploadToken() {
         return this.auth.uploadToken(bucket, null, 3600, putPolicy);
     }
+
 }
