@@ -7,10 +7,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import xin.altitude.mybatisplus.entity.AgeEnum;
 import xin.altitude.mybatisplus.entity.User;
 import xin.altitude.mybatisplus.mapper.UserMapper;
 import xin.altitude.mybatisplus.service.UserService;
 
+import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,10 +23,19 @@ import java.util.Map;
  */
 @RestController
 public class UserController {
-    @Autowired
+    @Resource
     private UserMapper userMapper;
     @Autowired
     private UserService userService;
+
+    /**
+     * 按照主键查询
+     * @return
+     */
+    @GetMapping("/user/select/list")
+    public List<User> getUserList() {
+        return userMapper.selectList(null);
+    }
 
     /**
      * 按照主键查询
@@ -50,6 +61,7 @@ public class UserController {
      */
     @PostMapping("/user/insert")
     public User addUser(User user){
+        user.setAge(AgeEnum.TWO);
         userMapper.insert(user);
         return user;
     }

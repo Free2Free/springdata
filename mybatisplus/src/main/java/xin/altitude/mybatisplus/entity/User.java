@@ -1,10 +1,7 @@
 package xin.altitude.mybatisplus.entity;
 
 
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.annotation.Version;
+import com.baomidou.mybatisplus.annotation.*;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -28,7 +25,7 @@ public class User {
 
 	// 年龄
 	@ApiModelProperty(value = "年龄", position = 2)
-	private Integer age;
+	private AgeEnum age;
 
 	// 邮箱
 	@ApiModelProperty(value = "邮箱", position = 3)
@@ -52,9 +49,9 @@ public class User {
 	@ApiModelProperty(value = "修改时间", position = 7)
 	private java.util.Date gmtModified;
 
-	public User(String name, Integer age, String email) {
-		this.name = name;
-		this.age = age;
-		this.email = email;
-	}
+	//public User(String name, Integer age, String email) {
+	//	this.name = name;
+	//	this.age = age;
+	//	this.email = email;
+	//}
 }
