@@ -18,7 +18,7 @@ public enum AgeEnum implements IEnum<Integer> {
     @JsonValue
     private String desc;
 
-    AgeEnum(int value, String desc) {
+    AgeEnum(Integer value, String desc) {
         this.value = value;
         this.desc = desc;
     }
@@ -28,15 +28,7 @@ public enum AgeEnum implements IEnum<Integer> {
         return this.value;
     }
 
-    public void setValue(Integer value) {
-        this.value = value;
-    }
-
     public String getDesc() {
         return this.desc;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
     }
 }

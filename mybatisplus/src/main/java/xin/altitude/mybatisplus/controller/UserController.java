@@ -61,7 +61,8 @@ public class UserController {
      */
     @PostMapping("/user/insert")
     public User addUser(User user){
-        user.setAge(AgeEnum.TWO);
+        //new AgeEnum(1,"1")
+        //user.setAge(AgeEnum.TWO);
         userMapper.insert(user);
         return user;
     }
