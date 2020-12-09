@@ -21,14 +21,16 @@ public class IndexController {
      */
     @GetMapping("/msgText")
     public void msgText() {
-        rabbitTemplate.convertAndSend("topic-exchange","slow.red.dog","注册成功了，需要发送短信通知");
+        for (int i = 0; i < 10; i++) {
+            rabbitTemplate.convertAndSend("topic-exchange","slow.red.dog","注册成功了，需要发送短信通知"+i);
+        }
     }
 
-    @GetMapping("/msgImage")
-    public void msgImage() {
-        ImageEntity image = new ImageEntity(1,"/aa/bb/cc");
-
-        rabbitTemplate.convertAndSend("topic-exchange","slow.red.dog",image);
-    }
+//    @GetMapping("/msgImage")
+//    public void msgImage() {
+//        ImageEntity image = new ImageEntity(1,"/aa/bb/cc");
+//
+//        rabbitTemplate.convertAndSend("topic-exchange","slow.red.dog",image);
+//    }
 
 }

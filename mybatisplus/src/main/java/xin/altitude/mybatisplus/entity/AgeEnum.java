@@ -13,7 +13,7 @@ public enum AgeEnum implements IEnum<Integer> {
     TWO(2, "二岁"),
     THREE(3, "三岁");
 
-    @EnumValue
+    //@EnumValue
     private Integer value;
     @JsonValue
     private String desc;
