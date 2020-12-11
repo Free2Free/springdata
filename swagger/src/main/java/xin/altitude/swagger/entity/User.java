@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 public class User {
 
 	// 主键ID（全局唯一）
-	@ApiModelProperty(value = "主键ID（全局唯一）", position = 0)
+	@ApiModelProperty(value = "主键ID（全局唯一）",required = true, position = 0)
 	@TableId
 	private Long id;
 

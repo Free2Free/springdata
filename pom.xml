@@ -10,6 +10,7 @@
         <module>qrcode</module>
         <module>jackjson</module>
         <module>mybatis</module>
+        <module>mongodb</module>
     </modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
