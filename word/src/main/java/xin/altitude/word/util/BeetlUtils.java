@@ -17,21 +17,33 @@ import java.util.Map;
 public class BeetlUtils {
     private static org.beetl.core.Template t;
 
-    private Template createGroupTemplate() throws IOException {
+    private static Template createGroupTemplate() throws IOException {
+        return createGroupTemplate("table1");
+    }
+
+    private static Template createGroupTemplate(String templateName) throws IOException {
         String path = ClassUtils.getDefaultClassLoader().getResource("").getPath();
         ClasspathResourceLoader resourceLoader = new ClasspathResourceLoader("files/");
         Configuration config = Configuration.defaultConfiguration();
         GroupTemplate groupTemplate = new GroupTemplate(resourceLoader, config);
-//
-//        String filepath = path+"files/table1.xml";
-        Template template = groupTemplate.getTemplate("table1.btl");
+        Template template = groupTemplate.getTemplate(templateName+".btl");
         t = template;
         return template;
     }
 
-    public void exportWord(HttpServletResponse response, Map<String, Object> dataMap) throws Exception {
+    public static void exportWord(HttpServletResponse response, Map<String, Object> dataMap) throws Exception {
         if (null == t) {
             createGroupTemplate();
+        }
+        response.setContentType("application/msword");
+        response.setHeader("Content-Disposition", "attachment; filename=" + System.currentTimeMillis() + ".doc");
+        t.binding(dataMap);
+        t.renderTo(response.getOutputStream());
+    }
+
+    public static void exportWord(HttpServletResponse response, Map<String, Object> dataMap,String templateName) throws Exception {
+        if (null == t) {
+            createGroupTemplate(templateName);
         }
         response.setContentType("application/msword");
         response.setHeader("Content-Disposition", "attachment; filename=" + System.currentTimeMillis() + ".doc");

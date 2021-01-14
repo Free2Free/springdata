@@ -16,4 +16,10 @@ public class BaseModel {
     private String item;
     private String scope;
     private String desc;
+
+    public BaseModel(String module, String item, String scope) {
+        this.module = module;
+        this.item = item;
+        this.scope = scope;
+    }
 }

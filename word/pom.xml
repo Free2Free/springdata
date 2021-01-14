@@ -20,21 +20,21 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <dependency>
-            <groupId>repository.org.freemarker</groupId>
-            <artifactId>freemarker</artifactId>
-            <version>2.3.30</version>
-        </dependency>
-        <dependency>
-            <groupId>repository.org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.16</version>
-        </dependency>
-        <dependency>
-            <groupId>repository.org.apache.poi</groupId>
-            <artifactId>poi-ooxml</artifactId>
-            <version>4.1.2</version>
-        </dependency>
+        <!--<dependency>-->
+        <!--    <groupId>repository.org.freemarker</groupId>-->
+        <!--    <artifactId>freemarker</artifactId>-->
+        <!--    <version>2.3.30</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--    <groupId>repository.org.projectlombok</groupId>-->
+        <!--    <artifactId>lombok</artifactId>-->
+        <!--    <version>1.18.16</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--    <groupId>repository.org.apache.poi</groupId>-->
+        <!--    <artifactId>poi-ooxml</artifactId>-->
+        <!--    <version>4.1.2</version>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>com.ibeetl</groupId>
             <artifactId>beetl</artifactId>
