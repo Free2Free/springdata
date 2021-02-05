@@ -23,12 +23,21 @@ public class BeetlUtils {
             ClasspathResourceLoader resourceLoader = new ClasspathResourceLoader("files/");
             Configuration config = Configuration.defaultConfiguration();
             GroupTemplate groupTemplate = new GroupTemplate(resourceLoader, config);
+            addExtFunction(groupTemplate);
             Template template = groupTemplate.getTemplate(templateName + ".btl");
             t = template;
             return template;
         } catch (IOException e) {
         }
         return null;
+    }
+
+    /**
+     * 向模版注册外部拓展函数
+     * @param groupTemplate
+     */
+    private static void addExtFunction(GroupTemplate groupTemplate) {
+        groupTemplate.registerFunctionPackage("temp", TemplateService.class);
     }
 
     /**
