@@ -32,14 +32,6 @@ public class IndexController {
     }
 
 
-    @GetMapping("/download1")
-    public void docFileDownload1(HttpServletResponse response) throws Exception {
-        Map<String,Object> map = new HashMap<>();
-        List<BaseModel> baseModels = dataService.getlists1();
-        map.put("listData",baseModels);
-        BeetlUtils.exportWord(response,map);
-    }
-
     @GetMapping("/download2")
     public void docFileDownload2(HttpServletResponse response) throws Exception {
         Map<String,Object> map = new HashMap<>();
