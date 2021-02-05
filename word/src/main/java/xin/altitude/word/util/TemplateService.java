@@ -47,4 +47,11 @@ public class TemplateService {
         sets.add(item);
         return bl;
     }
+
+    /**
+     * 如果不是纵向合并单元格的第一行
+     */
+    public static String isMergeFirstLine(boolean bl){
+        return bl?"w:val=\"restart\"":"";
+    }
 }
