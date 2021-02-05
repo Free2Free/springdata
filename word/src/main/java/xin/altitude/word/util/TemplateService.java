@@ -1,5 +1,7 @@
 package xin.altitude.word.util;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 /**
@@ -24,5 +26,25 @@ public class TemplateService {
      */
     public static String uniqueKey(){
         return UUID.randomUUID().toString().replace("-", "");
+    }
+
+    /**
+     * 创建hashset
+     * @return
+     */
+    public static Set<String> createHashSet(){
+        return new HashSet<String>();
+    }
+
+    /**
+     * 判断字符串是否在hashset中
+     * @param sets
+     * @param item
+     * @return
+     */
+    public static boolean isHashSet(Set<String> sets,String item){
+        boolean bl = sets.contains(item);
+        sets.add(item);
+        return bl;
     }
 }

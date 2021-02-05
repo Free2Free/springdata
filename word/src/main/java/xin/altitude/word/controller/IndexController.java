@@ -39,4 +39,18 @@ public class IndexController {
         map.put("listData",baseModels);
         BeetlUtils.exportWord(response,map,"table2");
     }
+
+
+    /**
+     * 纵向合并单元格
+     * @param response
+     * @throws Exception
+     */
+    @GetMapping("/download3")
+    public void docFileDownload3(HttpServletResponse response) throws Exception {
+        Map<String,Object> map = new HashMap<>();
+        List<BaseModel> baseModels = dataService.getlists1();
+        map.put("listData",baseModels);
+        BeetlUtils.exportWord(response,map,"table3");
+    }
 }
