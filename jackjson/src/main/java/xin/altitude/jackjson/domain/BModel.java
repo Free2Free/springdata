@@ -1,6 +1,9 @@
 package xin.altitude.jackjson.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -17,13 +20,15 @@ import java.util.Date;
  **/
 @Data
 @JsonIgnoreProperties({"deleted", "gmtCreate", "gmtModified"})
-public class BModel {
+@JsonPropertyOrder({"id", "name"})
+public class BModel extends BaseEntity {
     //*************************** 业务属性开始 ***************************
     // id
     private Long id;
     // 姓名
     private String name;
     // 出生日期
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date birthDay;
     // 是否成年
     private Boolean adult;
@@ -31,13 +36,7 @@ public class BModel {
     private Integer age;
     // 薪资
     private BigDecimal salary;
+    private String othMsg;
     //*************************** 业务属性结束 ***************************
 
-
-    //*************************** 补充属性开始 ***************************
-    private long version;
-    private boolean deleted;
-    private Date gmtCreate;
-    private Date gmtModified;
-    //*************************** 补充属性结束 ***************************
 }

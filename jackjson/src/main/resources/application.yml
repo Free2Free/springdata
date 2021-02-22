@@ -2,3 +2,9 @@ spring:
   jackson:
     date-format: 'yyyy-MM-dd HH:mm:ss'
     time-zone: 'GMT+8'
+    mapper:
+      # 格式化JSON按照字典顺序排序
+      sort-properties-alphabetically: true
+    # 后端传递前端的值由驼峰转下划线，前端传递给后端的参数由下划线转驼峰
+    property-naming-strategy: SNAKE_CASE
+#    property-naming-strategy: CAMEL_CASE_TO_LOWER_CASE_WITH_UNDERSCORES
