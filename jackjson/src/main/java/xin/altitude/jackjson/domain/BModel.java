@@ -19,15 +19,19 @@ import java.util.Date;
  * @Date 2020/11/14 15:06
  **/
 @Data
-@JsonIgnoreProperties({"deleted", "gmtCreate", "gmtModified"})
-@JsonPropertyOrder({"id", "name"})
+//@JsonIgnoreProperties({"deleted", "gmtCreate", "gmtModified"})
+//@JsonPropertyOrder({"id", "name"})
+
 public class BModel extends BaseEntity {
     //*************************** 业务属性开始 ***************************
     // id
+    @JsonProperty(index = 1)
     private Long id;
     // 姓名
+    @JsonProperty(index = 2)
     private String name;
     // 出生日期
+    @JsonProperty(index = 3)
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date birthDay;
     // 是否成年
@@ -39,4 +43,8 @@ public class BModel extends BaseEntity {
     private String othMsg;
     //*************************** 业务属性结束 ***************************
 
+
+    public BModel() {
+        super();
+    }
 }

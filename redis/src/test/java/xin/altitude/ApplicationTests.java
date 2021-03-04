@@ -16,7 +16,7 @@ class ApplicationTests {
 
 	@Test
 	void contextLoads() {
-		System.out.println(service.getData());
+		System.out.println(service.getData(10,"AAAAA",null));
 	}
 
 }
