@@ -2,10 +2,12 @@ package xin.altitude.service;
 
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.context.annotation.Condition;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+/**
+ * @author explore
+ */
 @Service
 @CacheConfig(cacheNames = "VIEW",keyGenerator = "customKeyGenerator")
 public class RedisService {
