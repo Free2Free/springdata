@@ -13,6 +13,7 @@
         <module>mongodb</module>
         <module>word</module>
         <module>dynamicProxy</module>
+        <module>dynamicProxy-CGLIB</module>
     </modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>

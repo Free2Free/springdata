@@ -10,6 +10,10 @@
     <modelVersion>4.0.0</modelVersion>
     
     <artifactId>dynamicProxy</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>dynamicProxy-CGLIB</module>
+    </modules>
     <dependencies>
         <dependency>
             <groupId>org.junit.jupiter</groupId>

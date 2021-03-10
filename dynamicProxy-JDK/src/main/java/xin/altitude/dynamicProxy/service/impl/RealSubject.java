@@ -20,8 +20,7 @@ public class RealSubject implements Subject {
         Map<String, Object> map = new HashMap<>();
         map.put("key", name);
         map.put("value", System.currentTimeMillis());
-        String msg = "模拟缓存操作，缓存是应用动态代理的典型场景" + map;
-        System.out.println(msg);
-        return msg;
+        System.out.println(map);
+        return map.toString();
     }
 }

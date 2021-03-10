@@ -5,18 +5,9 @@ package xin.altitude.dynamicProxy.service;
  * @Date 2021/03/10 13:00
  **/
 public interface Subject {
-    /**
-     * 无参方法调用
-     *
-     * @return
-     */
+    // 无参方法调用
     void request();
 
-    /**
-     * 有餐方法调用
-     *
-     * @param name
-     * @return
-     */
+    // 有参方法调用
     String request(String name);
 }
