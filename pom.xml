@@ -12,6 +12,7 @@
         <module>mybatis</module>
         <module>mongodb</module>
         <module>word</module>
+        <module>dynamicProxy</module>
     </modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -66,8 +67,8 @@
 			<artifactId>javase</artifactId>
 			<version>3.4.0</version>
 		</dependency>
-
-
+		
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -78,6 +79,10 @@
 					<artifactId>junit-vintage-engine</artifactId>
 				</exclusion>
 			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-test</artifactId>
 		</dependency>
 	</dependencies>
 

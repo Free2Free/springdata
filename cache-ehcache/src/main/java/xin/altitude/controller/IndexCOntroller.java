@@ -1,0 +1,23 @@
+package xin.altitude.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import xin.altitude.service.EhCacheService;
+
+/**
+ * @Author explore
+ * @Date 2021/03/05 14:58
+ **/
+@RestController
+public class IndexCOntroller {
+    @Autowired
+    private EhCacheService ehCacheService;
+
+    @GetMapping("/index")
+    public String index(@RequestParam("a") int a) {
+//        System.out.println("a = " + a);
+        return ehCacheService.getData(a);
+    }
+}
