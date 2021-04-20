@@ -8,6 +8,7 @@ class CacheEhcacheApplicationTests {
 
     @Test
     void contextLoads() {
+    
     }
 
 }

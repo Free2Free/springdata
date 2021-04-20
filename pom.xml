@@ -4,17 +4,16 @@
 	<modelVersion>4.0.0</modelVersion>
 	<packaging>pom</packaging>
 	<modules>
-        <module>redis</module>
 		<module>springsession-redis</module>
 		<module>rabbitmq</module>
-        <module>qrcode</module>
-        <module>jackjson</module>
-        <module>mybatis</module>
-        <module>mongodb</module>
-        <module>word</module>
-        <module>dynamicProxy</module>
-        <module>dynamicProxy-CGLIB</module>
-    </modules>
+		<module>qrcode</module>
+		<module>jackjson</module>
+		<module>mybatis</module>
+		<module>mongodb</module>
+		<module>word</module>
+		<module>dynamicProxy-CGLIB</module>
+		<module>dynamicProxy-JDK</module>
+	</modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -84,6 +83,10 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-test</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
 		</dependency>
 	</dependencies>
 

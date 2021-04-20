@@ -9,17 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     
-    <artifactId>dynamicProxy</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>dynamicProxy-CGLIB</module>
-    </modules>
-    <dependencies>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-        </dependency>
-    </dependencies>
+    <artifactId>dynamicProxy-JDK</artifactId>
     
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
