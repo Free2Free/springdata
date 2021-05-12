@@ -5,6 +5,8 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 /**
+ * 自定义CacheName
+ *
  * @author explore
  */
 @Service

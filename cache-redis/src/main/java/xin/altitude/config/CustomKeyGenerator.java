@@ -14,7 +14,7 @@ import java.lang.reflect.Method;
 public class CustomKeyGenerator implements KeyGenerator {
     @Override
     public Object generate(Object target, Method method, Object... params) {
-        return String.format("%s::%s(%s)", target.getClass().getName(), method.getName(),
+        return String.format("%s:%s(%s)", target.getClass().getName(), method.getName(),
                 CollectionUtils.arrayToList(params));
     }
 }

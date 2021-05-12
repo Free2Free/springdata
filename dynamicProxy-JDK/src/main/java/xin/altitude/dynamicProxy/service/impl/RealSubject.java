@@ -1,5 +1,6 @@
 package xin.altitude.dynamicProxy.service.impl;
 
+
 import xin.altitude.dynamicProxy.service.Subject;
 
 import java.util.HashMap;

@@ -11,13 +11,12 @@ import xin.altitude.service.EhCacheService;
  * @Date 2021/03/05 14:58
  **/
 @RestController
-public class IndexCOntroller {
+public class IndexController {
     @Autowired
     private EhCacheService ehCacheService;
-
+    
     @GetMapping("/index")
     public String index(@RequestParam("a") int a) {
-//        System.out.println("a = " + a);
         return ehCacheService.getData(a);
     }
 }

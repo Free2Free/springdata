@@ -1,44 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<config xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
-        xmlns='http://www.ehcache.org/v3'
-        xsi:schemaLocation="http://www.ehcache.org/v3 http://www.ehcache.org/schema/ehcache-core.xsd">
-    <persistence directory="ehcacheTestDisk"/>
-    <thread-pools>
-        <thread-pool alias="defaultDiskPool" min-size="1"
-                     max-size="3"/>
-        <thread-pool alias="defaultWriteBehindPool" min-size="1"
-                     max-size="3"/>
-        <thread-pool alias="cache2Pool" min-size="2" max-size="2"/>
-    </thread-pools>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd">
     
-    <event-dispatch thread-pool="defaultDiskPool"/>
-    <write-behind thread-pool="defaultWriteBehindPool"/>
-    <disk-store thread-pool="defaultDiskPool"/>
+    <!-- 磁盘缓存位置 -->
+    <diskStore path="java.io.tmpdir/ehcache"/>
     
-    <cache alias="foo">
-        <key-type>java.lang.Long</key-type>
-        <value-type>java.lang.String</value-type>
-        <resources>
-            <heap unit="entries">2000</heap>
-            <offheap unit="MB">500</offheap>
-            <disk persistent="true" unit="MB">640</disk>
-        </resources>
-    </cache>
-    <!--缓存配置 -->
-    <cache-template name="myDefaults">
-        <key-type>java.lang.Long</key-type>
-        <value-type>java.lang.String</value-type>
-        <heap unit="entries">200</heap>
+    <!-- 默认缓存 -->
+    <defaultCache
+            maxEntriesLocalHeap="10000"
+            eternal="false"
+            timeToIdleSeconds="120"
+            timeToLiveSeconds="120"
+            maxEntriesLocalDisk="10000000"
+            diskExpiryThreadIntervalSeconds="120"
+            memoryStoreEvictionPolicy="LRU">
+        <persistence strategy="localTempSwap"/>
+    </defaultCache>
     
-    </cache-template>
+    <!-- helloworld缓存 -->
+    <cache name="HelloWorldCache"
+           maxElementsInMemory="1000"
+           eternal="false"
+           timeToIdleSeconds="5"
+           timeToLiveSeconds="5"
+           overflowToDisk="false"
+           memoryStoreEvictionPolicy="LRU"/>
     
-    <cache alias="userCache" uses-template="myDefaults">
-        <expiry>
-            <ttl unit="minutes">1</ttl>
-        </expiry>
-    </cache>
-    
-    <cache alias="simpleCache" uses-template="myDefaults"/>
-
-
-</config>
+    <!-- userCache缓存 -->
+    <cache name="userCache"
+           maxElementsInMemory="1000"
+           eternal="false"
+           timeToIdleSeconds="30"
+           timeToLiveSeconds="30"
+           overflowToDisk="false"
+           memoryStoreEvictionPolicy="LRU"/>
+</ehcache>

@@ -1,6 +1,6 @@
 package xin.altitude.dynamicProxy;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import xin.altitude.dynamicProxy.service.Subject;
 import xin.altitude.dynamicProxy.service.impl.InvocationHandlerImpl;
 import xin.altitude.dynamicProxy.service.impl.RealSubject;
@@ -16,26 +16,26 @@ import java.lang.reflect.Proxy;
  **/
 public class Client {
     @Test
-    void test01() {
-        RealSubject realSubject = new RealSubject();
+    public void test01() {
+        xin.altitude.dynamicProxy.service.impl.RealSubject realSubject = new xin.altitude.dynamicProxy.service.impl.RealSubject();
         InvocationHandler handler = new InvocationHandlerImpl(realSubject);
-
+        
         ClassLoader loader = realSubject.getClass().getClassLoader();
         Class[] interfaces = realSubject.getClass().getInterfaces();
         /**
          * 该方法用于为指定类装载器、一组接口及调用处理器生成动态代理类实例
          */
         Subject subject = (Subject) Proxy.newProxyInstance(loader, interfaces, handler);
-
+        
         subject.request();
     }
-
-
+    
+    
     @Test
-    void test02() {
+    public void test02() {
         RealSubject realSubject = new RealSubject();
         InvocationHandler handler = new InvocationHandlerImpl(realSubject);
-
+        
         ClassLoader loader = realSubject.getClass().getClassLoader();
         Class[] interfaces = realSubject.getClass().getInterfaces();
         /**

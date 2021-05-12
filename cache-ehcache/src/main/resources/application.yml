@@ -2,4 +2,4 @@ spring:
   cache:
     type: EHCACHE
     ehcache:
-      config: classpath:/ehcache.xml
+      config: classpath:ehcache.xml
