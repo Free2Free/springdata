@@ -1,6 +1,5 @@
 package xin.altitude.mutisourcecache.config;
 
-import com.google.common.collect.Maps;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.ehcache.EhCacheCacheManager;
 import org.springframework.cache.interceptor.KeyGenerator;
@@ -17,7 +16,6 @@ import org.springframework.util.CollectionUtils;
 import xin.altitude.mutisourcecache.constants.CacheNameTimeConstant;
 
 import java.time.Duration;
-import java.util.Map;
 
 /**
  * @Author explore
@@ -37,30 +35,20 @@ public class MitiSourceCacheConfig {
     public CacheManager redisCacheManager(LettuceConnectionFactory factory) {
         // 全局配置默认一天
         RedisCacheConfiguration redisCacheConfiguration = config.entryTtl(Duration.ofHours(1));
-        RedisCacheManager manager = RedisCacheManager.RedisCacheManagerBuilder
+        RedisCacheManager manager = getRedisCacheManager(factory, redisCacheConfiguration);
+        return manager;
+    }
+    
+    private RedisCacheManager getRedisCacheManager(LettuceConnectionFactory factory, RedisCacheConfiguration redisCacheConfiguration) {
+        return RedisCacheManager.RedisCacheManagerBuilder
                 .fromConnectionFactory(factory)
                 .cacheDefaults(redisCacheConfiguration)
                 .transactionAware()
                 // 初始化不同CACHENAME的过期过期时间
-                .withInitialCacheConfigurations(initialCacheConfigurations())
+                .withInitialCacheConfigurations(CacheNameTimeConstant.initialCacheConfigurations(redisCacheConfiguration))
                 .build();
-        return manager;
     }
     
-    /**
-     * 不同CacheName配置
-     */
-    private Map<String, RedisCacheConfiguration> initialCacheConfigurations() {
-        Map<String, RedisCacheConfiguration> hashMap = Maps.newHashMap();
-        hashMap.put(CacheNameTimeConstant.DEFAULT, config.entryTtl(Duration.ofDays(1)));
-        hashMap.put(CacheNameTimeConstant.CACHE_1MINS, config.entryTtl(Duration.ofMinutes(1)));
-        hashMap.put(CacheNameTimeConstant.CACHE_3MINS, config.entryTtl(Duration.ofMinutes(3)));
-        hashMap.put(CacheNameTimeConstant.CACHE_5MINS, config.entryTtl(Duration.ofMinutes(5)));
-        hashMap.put(CacheNameTimeConstant.CACHE_10MINS, config.entryTtl(Duration.ofMinutes(10)));
-        hashMap.put(CacheNameTimeConstant.CACHE_15MINS, config.entryTtl(Duration.ofMinutes(15)));
-        hashMap.put(CacheNameTimeConstant.CACHE_30MINS, config.entryTtl(Duration.ofMinutes(30)));
-        return hashMap;
-    }
     
     /**
      * 自定义key值生成规则
@@ -81,21 +69,29 @@ public class MitiSourceCacheConfig {
     }
     
     @Bean
-    public CacheManager redisCacheManager2(LettuceConnectionFactory factory) {
+    public CacheManager redisDb02CacheManager(final LettuceConnectionFactory factory) {
+        LettuceConnectionFactory lettuceConnectionFactory = createLettuceConnectionFactory(factory);
+        
+        // 全局配置默认过期时间
+        RedisCacheConfiguration redisCacheConfiguration = config.entryTtl(Duration.ofHours(1));
+        RedisCacheManager manager = getRedisCacheManager(lettuceConnectionFactory, redisCacheConfiguration);
+        return manager;
+    }
+    
+    /**
+     * 获取新的Redis连接工厂
+     *
+     * @param factory 调用方法传递的参数，不是容器中获取的
+     * @return LettuceConnectionFactory
+     */
+    private LettuceConnectionFactory createLettuceConnectionFactory(final LettuceConnectionFactory factory) {
+        // 获取容器中已存在的Redis连接配置
         RedisStandaloneConfiguration configuration = factory.getStandaloneConfiguration();
+        // 修改连接数据库
         configuration.setDatabase(9);
         LettuceConnectionFactory lettuceConnectionFactory = new LettuceConnectionFactory(configuration);
+        // 此语句非常重要
         lettuceConnectionFactory.afterPropertiesSet();
-        
-        // 全局配置默认一天
-        RedisCacheConfiguration redisCacheConfiguration = config.entryTtl(Duration.ofHours(1));
-        RedisCacheManager manager = RedisCacheManager.RedisCacheManagerBuilder
-                .fromConnectionFactory(lettuceConnectionFactory)
-                .cacheDefaults(redisCacheConfiguration)
-                .transactionAware()
-                // 初始化不同CACHENAME的过期过期时间
-                .withInitialCacheConfigurations(initialCacheConfigurations())
-                .build();
-        return manager;
+        return lettuceConnectionFactory;
     }
 }
