@@ -1,10 +1,14 @@
 spring:
+  jackson:
+    time-zone: 'GMT+8'
+    date-format: 'yyyy-MM-dd HH:mm:ss'
   redis:
     host: 127.0.0.1
     port: 6379
     database: 1
     # 连接超时时间
     timeout: 20s
+
     lettuce:
       pool:
         # 连接池中的最小空闲连接

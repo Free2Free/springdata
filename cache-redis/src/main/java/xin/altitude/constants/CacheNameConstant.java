@@ -1,6 +1,8 @@
 package xin.altitude.constants;
 
 /**
+ * 定义标准CacheName名称列表
+ *
  * @Author explore
  * @Date 2021/05/12 16:34
  **/
