@@ -1,0 +1,5 @@
+spring:
+  redis:
+    database: 8
+  jackson:
+    date-format: com.fasterxml.jackson.databind.util.StdDateFormat
