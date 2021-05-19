@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import xin.altitude.service.EhCacheService;
 
+import java.time.LocalDateTime;
+
 /**
  * @Author explore
  * @Date 2021/03/05 14:58
@@ -15,7 +17,7 @@ public class IndexController {
     private EhCacheService ehCacheService;
     
     @GetMapping("/index")
-    public String index() {
+    public LocalDateTime index() {
         return ehCacheService.getData();
     }
 }
