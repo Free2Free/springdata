@@ -4,6 +4,8 @@ import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+
 /**
  * 自定义CacheName
  *
@@ -13,8 +15,7 @@ import org.springframework.stereotype.Service;
 @CacheConfig(cacheNames = "userCache", keyGenerator = "customKeyGenerator")
 public class EhCacheService {
     @Cacheable()
-    public String getData(int a) {
-        System.out.println("第一次调用方法，第二次之后就直接从缓存取数据");
-        return String.valueOf(a);
+    public String getData() {
+        return String.valueOf(LocalDateTime.now());
     }
 }
