@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd">
-    
     <!-- CACHE_1MINS  -->
     <cache name="CACHE_1MINS"
            overflowToDisk="false"
