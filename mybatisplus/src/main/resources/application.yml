@@ -1,4 +1,3 @@
-
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -8,7 +7,10 @@ spring:
 
 
 mybatis-plus:
-#  typeEnumsPackage: xin.altitude.mybatisplus.entity
+  global-config:
+    db-config:
+      id-type: auto
+  #  typeEnumsPackage: xin.altitude.mybatisplus.entity
   #  global-config:
   #    db-config:
   #      logic-delete-field: deleted  # 全局逻辑删除的实体字段名(since 3.3.0,配置后可以忽略不配置步骤2)

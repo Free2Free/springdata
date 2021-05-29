@@ -1,7 +1,7 @@
 package xin.altitude.mybatisplus.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import xin.altitude.mybatisplus.entity.Book;
 import xin.altitude.mybatisplus.service.BookService;
@@ -16,9 +16,15 @@ import javax.annotation.Resource;
 public class BookController {
     @Resource
     private BookService bookService;
-
+    
     @GetMapping("/book")
-    public Book index(){
+    public Book index() {
         return bookService.getById(1322022492223426561L);
+    }
+    
+    @PostMapping("/book")
+    public Book index2(Book book) {
+        bookService.save(book);
+        return book;
     }
 }
