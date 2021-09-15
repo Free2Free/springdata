@@ -15,6 +15,7 @@
         <module>dynamicProxy-JDK</module>
         <module>lombokDemo</module>
         <module>obj-sort</module>
+        <module>cache-redis-sentinel</module>
     </modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>

@@ -6,12 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * 连接查询实体
- *
- * @Author explore
- * @Date 2021/05/24 10:18
- **/
+import java.util.Optional;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -23,8 +18,10 @@ public class XUser {
     private Integer deptId;
     
     public XUser(XUser xUser) {
-        this.userId = xUser.getUserId();
-        this.userName = xUser.getUserName();
-        this.deptId = xUser.getDeptId();
+        Optional.ofNullable(xUser).ifPresent(e -> {
+            this.userId = e.getUserId();
+            this.userName = e.getUserName();
+            this.deptId = e.getDeptId();
+        });
     }
 }

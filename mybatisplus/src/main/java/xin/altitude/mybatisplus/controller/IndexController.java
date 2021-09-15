@@ -26,7 +26,7 @@ public class IndexController {
     
     @GetMapping("/test/index1")
     public XUserVo index1() {
-        return xUserService.getOneUser(1);
+        return xUserService.getOneUser(3);
     }
     
     @GetMapping("/test/index2")

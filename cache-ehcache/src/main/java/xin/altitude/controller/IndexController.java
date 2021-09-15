@@ -3,9 +3,8 @@ package xin.altitude.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import xin.altitude.domain.XUser;
 import xin.altitude.service.EhCacheService;
-
-import java.time.LocalDateTime;
 
 /**
  * @Author explore
@@ -17,7 +16,7 @@ public class IndexController {
     private EhCacheService ehCacheService;
     
     @GetMapping("/index")
-    public LocalDateTime index() {
+    public XUser index() {
         return ehCacheService.getData();
     }
 }
