@@ -2,6 +2,7 @@ package xin.altitude.config;
 
 import com.google.common.collect.Maps;
 import io.lettuce.core.ReadFrom;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.data.redis.LettuceClientConfigurationBuilderCustomizer;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -26,6 +27,7 @@ import java.util.Set;
 /**
  * @author explore
  */
+@Setter
 @Configuration
 @ConfigurationProperties(prefix = "spring.redis.sentinel")
 public class RedisSentinelConfig {
@@ -45,14 +47,6 @@ public class RedisSentinelConfig {
         RedisSentinelConfiguration configuration = new RedisSentinelConfiguration(master, nodes);
         configuration.setDatabase(database);
         return new LettuceConnectionFactory(configuration);
-    }
-    
-    public void setNodes(Set<String> nodes) {
-        this.nodes = nodes;
-    }
-    
-    public void setMaster(String master) {
-        this.master = master;
     }
     
     @Bean
@@ -96,11 +90,10 @@ public class RedisSentinelConfig {
                 CollectionUtils.arrayToList(params));
     }
     
-    /**
-     * 读写分离
-     */
-    public LettuceClientConfigurationBuilderCustomizer lettuceClientConfigurationBuilderCustomizer() {
+    
+    @Bean
+    public LettuceClientConfigurationBuilderCustomizer lettuceClientCustomizer() {
+        // 配置读写分离
         return builder -> builder.readFrom(ReadFrom.REPLICA);
     }
-    
 }

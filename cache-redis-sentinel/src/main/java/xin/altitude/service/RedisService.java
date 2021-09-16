@@ -73,8 +73,8 @@ public class RedisService {
         String value = template.opsForValue().get("111");
         if (value == null) {
             System.out.println("方法执行进入方法体");
-            template.opsForValue().set("111", "111", Duration.ofSeconds(10));
+            template.opsForValue().set("111", "111", Duration.ofSeconds(60));
         }
-        return value;
+        return template.opsForValue().get("111");
     }
 }
