@@ -16,6 +16,7 @@
         <module>lombokDemo</module>
         <module>obj-sort</module>
         <module>cache-redis-sentinel</module>
+        <module>cache-redis-cluster</module>
     </modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>

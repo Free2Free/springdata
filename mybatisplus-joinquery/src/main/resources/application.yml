@@ -7,7 +7,7 @@ spring:
 
 
 mybatis-plus:
-#  global-config:
+  #  global-config:
   #    db-config:
   #      id-type: auto
   #  typeEnumsPackage: xin.altitude.mybatisplus.entity

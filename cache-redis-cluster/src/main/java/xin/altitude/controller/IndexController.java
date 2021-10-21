@@ -35,6 +35,7 @@ public class IndexController {
         return redisService.getUser3(new User(3, "BBB"));
     }
     
+    
     @GetMapping("/str")
     public String user4() {
         return redisService.getString();

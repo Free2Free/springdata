@@ -10,6 +10,7 @@ import xin.altitude.constants.CacheNameConstant;
 import xin.altitude.constants.CacheNameTimeConstant;
 import xin.altitude.domain.User;
 
+import java.time.Duration;
 import java.util.Date;
 
 /**
@@ -72,8 +73,7 @@ public class RedisService {
         String value = template.opsForValue().get("111");
         if (value == null) {
             System.out.println("方法执行进入方法体");
-            // template.opsForValue().set("111", "111", Duration.ofSeconds(60));
-            template.opsForValue().set("111", "111");
+            template.opsForValue().set("111", "111", Duration.ofSeconds(60));
         }
         return template.opsForValue().get("111");
     }

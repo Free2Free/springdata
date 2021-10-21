@@ -3,7 +3,7 @@ spring:
     time-zone: 'GMT+8'
     date-format: 'yyyy-MM-dd HH:mm:ss'
   redis:
-    database: 0
+    database: 2
     # 连接超时时间
     timeout: 180
 
@@ -17,10 +17,6 @@ spring:
         max-active: 8
         # #连接池最大阻塞等待时间（使用负值表示没有限制）
         max-wait: -1ms
-    sentinel:
-      nodes:
-        - 127.0.0.1:26380
-        - 127.0.0.1:26381
-        - 127.0.0.1:26382
-      master: mymaster
+    cluster:
+      nodes: 127.0.0.1:6480
 
