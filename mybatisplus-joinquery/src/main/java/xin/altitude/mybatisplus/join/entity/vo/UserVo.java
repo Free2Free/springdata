@@ -1,9 +1,7 @@
 package xin.altitude.mybatisplus.join.entity.vo;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 import xin.altitude.mybatisplus.join.entity.User;
@@ -14,8 +12,8 @@ import xin.altitude.mybatisplus.join.entity.User;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@NoArgsConstructor
-@AllArgsConstructor
+// @NoArgsConstructor
+// @AllArgsConstructor
 @Accessors(chain = true)
 @ToString(callSuper = true)
 public class UserVo extends User {

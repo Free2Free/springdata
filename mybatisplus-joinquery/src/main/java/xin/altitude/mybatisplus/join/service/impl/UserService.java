@@ -37,12 +37,13 @@ public class UserService {
      * 查询单个学生信息（一个学生对应一个部门）
      */
     public UserVo getOneUser(Integer userId) {
-        LambdaQueryWrapper<User> wrapper = Wrappers.lambdaQuery(User.class).eq(User::getUserId, userId);
+        LambdaQueryWrapper<User> wrapper = Wrappers.lambdaQuery(User.class)
+                .eq(User::getUserId, userId);
         // 先查询用户信息
         User user = userMapper.selectOne(wrapper);
         // 转化为Vo
         UserVo userVo = Optional.ofNullable(user).map(UserVo::new).orElse(null);
-        // 从其它表查询其它信息再封装到Vo
+        // 从其它表查询信息再封装到Vo
         Optional.ofNullable(userVo).ifPresent(this::addDetpNameInfo);
         return userVo;
     }
@@ -51,7 +52,8 @@ public class UserService {
      * 补充部门名称信息
      */
     private void addDetpNameInfo(UserVo userVo) {
-        Dept dept = deptMapper.selectOne(Wrappers.lambdaQuery(Dept.class).eq(Dept::getDeptId, userVo.getDeptId()));
+        LambdaQueryWrapper<Dept> wrapper = Wrappers.lambdaQuery(Dept.class).eq(Dept::getDeptId, userVo.getDeptId());
+        Dept dept = deptMapper.selectOne(wrapper);
         Optional.ofNullable(dept).ifPresent(e -> userVo.setDeptName(e.getDeptName()));
     }
     
@@ -64,7 +66,6 @@ public class UserService {
         List<UserVo> userVos = user.stream().map(UserVo::new).collect(toList());
         // 此步骤可以有多个
         addDeptNameInfo(userVos);
-        // 查询其它信息
         return userVos;
     }
     
@@ -72,7 +73,7 @@ public class UserService {
         // 提取用户userId，方便批量查询
         Set<Integer> deptIds = userVos.stream().map(User::getDeptId).collect(toSet());
         // 根据deptId查询deptName（查询前，先做非空判断）
-        List<Dept> dept = deptMapper.selectList(Wrappers.lambdaQuery(Dept.class).in(deptIds.size() > 0, Dept::getDeptId, deptIds));
+        List<Dept> dept = deptMapper.selectList(Wrappers.lambdaQuery(Dept.class).in(Dept::getDeptId, deptIds));
         // 构造映射关系，方便匹配deptId与deptName
         Map<Integer, String> hashMap = dept.stream().collect(toMap(Dept::getDeptId, Dept::getDeptName));
         // 封装Vo，并添加到集合中(关键内容)
@@ -88,8 +89,9 @@ public class UserService {
         IPage<User> xUserPage = userMapper.selectPage(page, Wrappers.emptyWrapper());
         // 初始化Vo
         IPage<UserVo> userVoPage = xUserPage.convert(UserVo::new);
-        // 此步骤可以有多个
-        addDeptNameInfo(userVoPage);
+        if (userVoPage.getRecords().size() > 0) {
+            addDeptNameInfo(userVoPage);
+        }
         return userVoPage;
     }
     

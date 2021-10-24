@@ -8,10 +8,10 @@
         <version>2.3.4.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>xin.altitude.mybatisplus</groupId>
-    <artifactId>mybatisplus-joinquery</artifactId>
+    <groupId>xin.altitude.mybatisplus.join2</groupId>
+    <artifactId>mybatisplus-joinquery2</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>mybatisplus-joinquery</name>
+    <name>mybatisplus-joinquery2</name>
     <description>Demo project for Spring Boot</description>
     
     <properties>
@@ -66,12 +66,10 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.74</version>
         </dependency>
-        
-        <!--代码生成-->
         <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-generator</artifactId>
-            <version>3.4.3.4</version>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>4.4</version>
         </dependency>
         <dependency>
             <groupId>org.apache.velocity</groupId>

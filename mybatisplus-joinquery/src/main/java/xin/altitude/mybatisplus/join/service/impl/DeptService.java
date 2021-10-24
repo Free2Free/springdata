@@ -56,8 +56,8 @@ public class DeptService {
      */
     public List<DeptVo> getDeptByList() {
         // 按条件查询部门信息
-        List<Dept> depts = deptMapper.selectList(Wrappers.emptyWrapper());
-        List<DeptVo> deptVos = depts.stream().map(DeptVo::new).collect(toList());
+        List<Dept> deptList = deptMapper.selectList(Wrappers.emptyWrapper());
+        List<DeptVo> deptVos = deptList.stream().map(DeptVo::new).collect(toList());
         if (deptVos.size() > 0) {
             addUserInfo(deptVos);
         }
@@ -82,7 +82,9 @@ public class DeptService {
         // 按条件查询部门信息
         IPage<Dept> xDeptPage = deptMapper.selectPage(page, Wrappers.emptyWrapper());
         IPage<DeptVo> deptVoPage = xDeptPage.convert(DeptVo::new);
-        addUserInfo(deptVoPage);
+        if (deptVoPage.getRecords().size() > 0) {
+            addUserInfo(deptVoPage);
+        }
         return deptVoPage;
     }
     
