@@ -1,6 +1,6 @@
 import org.junit.jupiter.api.Test;
-import xin.altitude.domain.SUser;
-import xin.altitude.domain.XUser;
+import xin.altitude.redis.cluster.domain.SUser;
+import xin.altitude.redis.cluster.domain.XUser;
 
 import java.util.Collections;
 import java.util.Comparator;

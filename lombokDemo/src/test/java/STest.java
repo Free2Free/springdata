@@ -1,5 +1,5 @@
 import org.junit.jupiter.api.Test;
-import xin.altitude.lombok.domain.XUser;
+import xin.altitude.redis.cluster.lombok.domain.XUser;
 
 /**
  * @Author explore
